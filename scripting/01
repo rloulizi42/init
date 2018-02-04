@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while IFS=: read -r login passwd uid gid com path shell
+    do
+        echo $login:$uid:$path
+    done < /etc/passwd
