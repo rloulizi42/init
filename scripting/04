@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -e /home/debian/check ]
+    then
+        s1=$(md5sum /etc/crontab)
+        s2=$(cat /home/debian/check)
+        if [ "$s1" != "$s2" ]
+        then
+            echo "/etc/crontab was modified!"
+        fi
+else
+    md5sum /etc/crontab > /home/debian/check
+fi
